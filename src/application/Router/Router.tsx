@@ -3,10 +3,10 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import { HomePage } from "@/pages/HomePage";
-import { About } from "@/pages/About";
+import { AboutPage } from "@/pages/AboutPage";
+import { DictionaryPage } from "@/pages/DictionaryPage";
 import { Layout } from "../Layout";
-import { Dictionary } from "@/pages/Dictionary";
-import { Paths } from './paths'
+import { Paths } from '../paths'
 
 const router = createBrowserRouter([
     {
@@ -19,12 +19,12 @@ const router = createBrowserRouter([
         },
         {
             path: Paths.about,
-            element: <About />,
+            element: <AboutPage />,
         },
         {
             path: Paths.dictionary,
-            element: <Dictionary />
-        }
+            element: <DictionaryPage />
+        },
       ]
     },
 ]);

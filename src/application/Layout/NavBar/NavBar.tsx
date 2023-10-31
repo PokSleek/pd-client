@@ -1,33 +1,43 @@
+import { useCallback, useState } from 'react';
 import { NavLink } from 'react-router-dom'
-import { Paths } from '@/application/Router'
+import type { MenuProps } from 'antd';
+import { MenuClickEventHandler } from 'rc-menu/lib/interface';
+import { Paths } from '@/application/paths'
+import { Wrapper, Title, Navigation, Menu } from './NavBar.styles';
+
+const items: MenuProps['items'] = [
+  {
+    label:  <NavLink to={Paths.home}>Home</NavLink>,
+    key: 'home',
+  },
+  {
+    label:  <NavLink to={Paths.about}>About</NavLink>,
+    key: 'about',
+  },
+  {
+    label:  <NavLink to={Paths.dictionary}>Dictionary</NavLink>,
+    key: 'dictionary',
+  }
+]
 
 export const NavBar = () => {
+    const [current, setCurrent] = useState<string[]>(['home']);
+
+    const onClick: MenuClickEventHandler = useCallback((info) => {
+        setCurrent([info.key]);
+      }, []);
+
     return (
-        <div>
-            <h1>Personal Dictionary</h1>
-            <ul>
-                <li>
-                    <NavLink
-                        to={Paths.home}
-                    >
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                        to={Paths.about}
-                    >
-                        About
-                    </NavLink>
-                    <li>
-                    <NavLink
-                        to={Paths.dictionary}
-                    >
-                        Dictionary
-                    </NavLink>
-                </li>
-                </li>
-            </ul>
-        </div>
+        <Wrapper>
+            <Title>Personal Dictionary</Title>
+            <Navigation>
+                <Menu
+                    onClick={onClick}
+                    selectedKeys={current}
+                    mode="horizontal"
+                    items={items}
+                />
+            </Navigation>
+        </Wrapper>
     )
 }
