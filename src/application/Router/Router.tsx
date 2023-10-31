@@ -5,6 +5,8 @@ import {
 import { HomePage } from "@/pages/HomePage";
 import { About } from "@/pages/About";
 import { Layout } from "../Layout";
+import { Dictionary } from "@/pages/Dictionary";
+import { Paths } from './paths'
 
 const router = createBrowserRouter([
     {
@@ -12,13 +14,17 @@ const router = createBrowserRouter([
       element: <Layout />,
       children: [
         {
-            path: '',
+            index: true,
             element: <HomePage />
         },
         {
-            path: "about",
+            path: Paths.about,
             element: <About />,
         },
+        {
+            path: Paths.dictionary,
+            element: <Dictionary />
+        }
       ]
     },
 ]);

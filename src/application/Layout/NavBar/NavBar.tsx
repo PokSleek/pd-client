@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { Paths } from '@/application/Router'
 
 export const NavBar = () => {
     return (
@@ -7,17 +8,24 @@ export const NavBar = () => {
             <ul>
                 <li>
                     <NavLink
-                        to={'/'}
+                        to={Paths.home}
                     >
                         Home
                     </NavLink>
                 </li>
                 <li>
                     <NavLink
-                        to={'/about'}
+                        to={Paths.about}
                     >
                         About
                     </NavLink>
+                    <li>
+                    <NavLink
+                        to={Paths.dictionary}
+                    >
+                        Dictionary
+                    </NavLink>
+                </li>
                 </li>
             </ul>
         </div>
