@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom/client'
-import { App } from './App.tsx'
+import { Application } from '@/application'
 import 'normalize.css'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-    <App />
+    <Application />
 )
